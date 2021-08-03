@@ -13,6 +13,7 @@ public class WriteService {
             for (ResultEntity entity : resultList) {
                 writer.write(entity.getId() + " " + entity.getValue1() + " " + entity.getValue2() + "\n");
             }
+            writer.write("\n");
         } catch (IOException e) {
             System.out.println("Ошибка записи в файл");
         }

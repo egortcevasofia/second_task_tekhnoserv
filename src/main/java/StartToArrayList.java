@@ -6,6 +6,14 @@ import java.util.ArrayList;
 
 public class StartToArrayList {
     public static void main(String[] args) {
+
+        if (args.length != 3) {
+            System.out.println("Неверно заданы пути для файлов чтения и записи," +
+                    " в параметры необходимо передать три пути к расположению файлов:" +
+                    " первый и второй - пути для считывания, третий - для записи");
+            return;
+        }
+
         InnerJoinArrayListService innerJoinArrayListService = new InnerJoinArrayListService();
         ReadAndValidateService readAndValidateService = new ReadAndValidateService();
         InnerJoinHashMapService innerJoinHashMapService = new InnerJoinHashMapService();
@@ -15,9 +23,9 @@ public class StartToArrayList {
         /**В конфигурацию необходимо передать следующие пути к файлам в заданом порядке
         1. Файл для считывания №1
         2. Файл для считывания №2
-        3. Файл для записи для ArrayList
-        4. Файл для записи для HashMap
-        5. файл для записи для LinkedList(Пока не реализовано)*/
+        3. Файл для записи для ArrayList/HashMap/LinkedList
+         Выполнять программу строго для одного варианта, не нужные варианты можно заккоментировать
+         */
 
         ArrayList<Entity> firstList = readAndValidateService.readToArrayList(args[0]);
         ArrayList<Entity> secondList = readAndValidateService.readToArrayList(args[1]);
@@ -27,7 +35,7 @@ public class StartToArrayList {
 
         ArrayList<ResultEntity> resultListMap = innerJoinHashMapService.innerJoinMap(convertService.convertToMap(firstList),
                 convertService.convertToMap(secondList));
-        writeService.writeToFile(resultListMap, args[3]);
+        writeService.writeToFile(resultListMap, args[2]);
 
     }
 }

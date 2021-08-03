@@ -50,10 +50,11 @@ public class ReadAndValidateService {
         } catch (NumberFormatException e) {
             System.out.println(String.format("В строке %s в поле ID записано не числовое значение или дробное число", numberOfLine));
             return false;
-        } catch (Exception e) {
+        } catch (StringNotValidException | IdNotValidException e) {
             System.out.println(e.getMessage());
             return false;
         }
+
         return true;
     }
 
