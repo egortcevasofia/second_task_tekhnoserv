@@ -1,6 +1,9 @@
 package entity;
 
-public class Entity {
+import java.util.Comparator;
+import java.util.Map;
+
+public class Entity implements Comparator<Entity> {
    private Long id;
    private String value;
 
@@ -31,5 +34,19 @@ public class Entity {
                 "id=" + id +
                 ", value='" + value + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public int compare(Entity o1, Entity o2) {
+        if (o1.id.equals(o2.id)) {
+            return 0;
+        }
+        if (o1.id > o2.id) {
+            return 1;
+        }
+        else {
+            return -1;
+        }
     }
 }

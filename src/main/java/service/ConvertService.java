@@ -2,10 +2,11 @@ package service;
 
 import entity.Entity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class ConvertService {
+    private Comparator<Entity> comparator = (e1, e2) -> e1.getId().compareTo(e2.getId());
+
 
     public HashMap<Long, ArrayList<String>> convertToMap(ArrayList<Entity> listOfEntity) {
         HashMap<Long, ArrayList<String>> map = new HashMap<>();
@@ -17,5 +18,14 @@ public class ConvertService {
         }
         return map;
     }
+
+    public LinkedList<Entity> convertToLinkedList(ArrayList<Entity> listOfEntity){
+        LinkedList<Entity> linkedListOfEntity = new LinkedList<>(listOfEntity);
+        linkedListOfEntity.sort(comparator);
+        return linkedListOfEntity;
+    }
+
+
+
 
 }

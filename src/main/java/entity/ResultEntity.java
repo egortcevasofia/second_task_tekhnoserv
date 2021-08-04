@@ -12,6 +12,7 @@ public class ResultEntity {
     }
 
 
+
     public Long getId() {
         return id;
     }
