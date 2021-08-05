@@ -1,4 +1,9 @@
-2 C A
-2 B A
-3 D E
+1 Q A
+1 Q S
+2 W F
+2 E F
+3 R D
+3 R G
+3 T D
+3 T G
 
